@@ -3,7 +3,7 @@
     padding: 0 15px;
   }
   .flex-grid {
-    display: block;
+    
   }
   .content {
     padding-top: $primary-page-top-padding - 40;
@@ -20,7 +20,7 @@
   .music-search__input {
     width: 61%;
   }
-  .album-list__item {
+  .album-list__item, .favorites .album-list__item {
     width: 100%;
   }
   .artwork__meta {

@@ -65,6 +65,11 @@
   cursor: pointer;
   position: absolute;
 }
+.favorites{
+  .album-list__item {
+    min-width: 290px;
+  }
+}
 
 
 /* Artwok list */

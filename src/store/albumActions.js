@@ -48,7 +48,6 @@ export const loadAlbumDetail = (collectionId, searchType) => (dispatch, getState
 // Load favorites
 export const loadFavoriteAlbums = () => (dispatch, getState) => {
   const favorites = getState().favorites;
-  //console.log("Favorites = " + favorites);
   dispatch ({
       type: ActionTypes.FETCH_FAVORITE,
       payload: favorites // gets all favorites from store
@@ -56,11 +55,24 @@ export const loadFavoriteAlbums = () => (dispatch, getState) => {
 }
 
 
+
+// Load favorites
+export const loadFilteredFavoriteAlbumsByArtist = (artist) => (dispatch, getState) => {
+  let filteredArtists = [];
+  if(artist !== 'allArtists') {
+    filteredArtists = getState().favorites.filter( album => album.artistName === artist );
+  } else {
+    filteredArtists = getState().favorites
+  }
+  dispatch ({
+      type: ActionTypes.FETCH_ARTISTS,
+      payload: filteredArtists
+  });
+}
+
+
 // Add an album in favorites
 export const addFavoriteAlbum = (favAlbum) => (dispatch, getState) => {
-
-  //const hasFavoriteAlready = state.some( favoriteItem => favoriteItem.collectionId === action.payload.collectionId )
-  //return (hasFavoriteAlready) ? state: [...state, action.payload]; // todo: add message that record already exists
 
   dispatch ({
     type: ActionTypes.ADD_FAVORITE,
@@ -91,7 +103,7 @@ export const favoriteCount = () => (dispatch, getState) => {
     type: ActionTypes.COUNT_FAVORITE,
     payload: getState().favorites
   });
-  // todo: Another dispatch for message that Item has been remove as favorite
+
 }
 
 
