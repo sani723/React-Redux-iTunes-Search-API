@@ -8,7 +8,6 @@ export const loadAlbums = (artist, searchType) => (dispatch, getState) => {
     albums =  data.results.filter( (album) => {
       return album.artistName.toLowerCase().includes(artist.toLowerCase());
     });
-    console.log(albums);
     dispatch ({
       type: ActionTypes.FETCH_ALBUMS,
       payload: albums
@@ -20,6 +19,12 @@ export const loadAlbums = (artist, searchType) => (dispatch, getState) => {
 
 // Load selected album details
 export const loadAlbumDetail = (collectionId, searchType) => (dispatch, getState) => {
+
+  // start fetching
+  dispatch ({
+    type: ActionTypes.START_FETCHING
+  });
+
   API.fetchAlbumDetails(collectionId, searchType).then( data => {
     let songs = [];
     songs =  data.results.filter( (song) => {
@@ -30,15 +35,23 @@ export const loadAlbumDetail = (collectionId, searchType) => (dispatch, getState
       payload: songs
     });
   });
+
+  // cancel fetching
+  dispatch ({
+    type: ActionTypes.CANCEL_FETCHING
+  });
+
 }
 
 
 
 // Load favorites
 export const loadFavoriteAlbums = () => (dispatch, getState) => {
+  const favorites = getState().favorites;
+  //console.log("Favorites = " + favorites);
   dispatch ({
       type: ActionTypes.FETCH_FAVORITE,
-      payload: getState().favorites // gets all favorites from store
+      payload: favorites // gets all favorites from store
   });
 }
 
@@ -46,17 +59,19 @@ export const loadFavoriteAlbums = () => (dispatch, getState) => {
 // Add an album in favorites
 export const addFavoriteAlbum = (favAlbum) => (dispatch, getState) => {
 
+  //const hasFavoriteAlready = state.some( favoriteItem => favoriteItem.collectionId === action.payload.collectionId )
+  //return (hasFavoriteAlready) ? state: [...state, action.payload]; // todo: add message that record already exists
+
   dispatch ({
     type: ActionTypes.ADD_FAVORITE,
     payload: favAlbum
   });
 
-  dispatch({
-    type: ActionTypes.ADD_ERROR,
-    payload: "Album has been added to your favorite list."
-  });
+  //dispatch({
+  //  type: ActionTypes.ADD_ERROR,
+  //  payload: "Album has been added to your favorite list."
+  //});
 
-  console.log("Album has been set as favorite " + favAlbum);
   // todo: Another dispatch for message that Item has been set as favorite
 }
 
@@ -68,4 +83,27 @@ export const removeFavoriteAlbum = (collectionId) => (dispatch, getState) => {
     payload: collectionId
   });
   // todo: Another dispatch for message that Item has been remove as favorite
+}
+
+// Remove an album from favorites
+export const favoriteCount = () => (dispatch, getState) => {
+  dispatch ({
+    type: ActionTypes.COUNT_FAVORITE,
+    payload: getState().favorites
+  });
+  // todo: Another dispatch for message that Item has been remove as favorite
+}
+
+
+
+export const startFetching = () => (dispatch, getState) => {
+  dispatch ({
+    type: ActionTypes.START_FETCHING
+  });
+}
+
+export const cancelFetching = () => (dispatch, getState) => {
+  dispatch ({
+    type: ActionTypes.CANCEL_FETCHING
+  });
 }

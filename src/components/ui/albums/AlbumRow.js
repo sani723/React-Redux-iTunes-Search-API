@@ -2,7 +2,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
-import MdFavorite from 'react-icons/lib/md/favorite';
+import MdFavoriteOutline from 'react-icons/lib/md/favorite-outline';
 
 const AlbumRow = (props) => {
 
@@ -17,7 +17,7 @@ const AlbumRow = (props) => {
             </picture>
             <span className="album-list__name">{collectionName}</span>
           </Link>
-          <MdFavorite className="album-list__favorite" onClick={props.onClick.bind(null, props)} />
+          <MdFavoriteOutline className="album-list__favorite" onClick={props.onClick.bind(null, props)} />
         </li>
 
       );

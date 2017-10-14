@@ -13,8 +13,17 @@ class Albums extends Component {
   }
 
   render() {
-    const { albums } = this.props;
-    const content = albums.map( (album, index) => <AlbumRow key={album.collectionId} {...album} onClick={this.props.favoriteToggle} /> );
+    const { albums, isLoading } = this.props;
+
+    let content = '';
+
+    if(isLoading && !albums.length) {
+      content = <p>Loading....</p>
+    } else {
+      content = albums.map( (album, index) => <AlbumRow key={album.collectionId} {...album} onClick={this.props.favoriteToggle} /> );
+    }
+
+    //const content = albums.map( (album, index) => <AlbumRow key={album.collectionId} {...album} onClick={this.props.favoriteToggle} /> );
     return (
       <div className="content flex-grid">
         <section className="music-search">
@@ -41,7 +50,7 @@ class Albums extends Component {
 const mapStateToProps = state => (
   {
     albums: state.albums,
-    isLoading: false
+    isLoading: state.fetchingStatus
   }
 );
 

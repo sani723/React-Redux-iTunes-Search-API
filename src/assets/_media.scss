@@ -23,4 +23,13 @@
   .album-list__item {
     width: 100%;
   }
+  .artwork__meta {
+    display: flex;
+  }
+  .artwork__price {
+    display: none;
+  }
+  .artwork__name {
+    padding: 0 10px;
+  }
 }
