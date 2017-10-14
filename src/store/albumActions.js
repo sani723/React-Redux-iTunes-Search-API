@@ -8,6 +8,7 @@ export const loadAlbums = (artist, searchType) => (dispatch, getState) => {
     albums =  data.results.filter( (album) => {
       return album.artistName.toLowerCase().includes(artist.toLowerCase());
     });
+    console.log(albums);
     dispatch ({
       type: ActionTypes.FETCH_ALBUMS,
       payload: albums

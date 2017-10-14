@@ -14,7 +14,7 @@ class Albums extends Component {
 
   render() {
     const { albums } = this.props;
-    const content = albums.map( (album, index) => <AlbumRow key={index} {...album} onClick={this.props.favoriteToggle} /> );
+    const content = albums.map( (album, index) => <AlbumRow key={album.collectionId} {...album} onClick={this.props.favoriteToggle} /> );
     return (
       <div className="content flex-grid">
         <section className="music-search">
@@ -26,9 +26,9 @@ class Albums extends Component {
           </form>
           <section className="search-results">
             <h2>Search results</h2>
-            <div className="artist-album">
+            <ul className="album-list">
               { content }
-            </div>
+            </ul>
           </section>
         </section>
       </div>

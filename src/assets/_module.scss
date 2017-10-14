@@ -33,3 +33,36 @@
   border-bottom-right-radius: 3px;
   background: rgba(0,0,0,0.8);
 }
+
+
+/* Album list */
+.album-list {
+  list-style: none;
+  text-align: left;
+}
+.album-list__item {
+  width: 50%;
+  float: left;
+  font-weight: 300;
+  position: relative;
+  background-color: #fff;
+  a {
+    display: flex;
+    padding: 15px;
+    -webkit-align-items: stretch;
+    align-items: stretch;
+    border-right: 1px solid #dfdfdd;
+    border-bottom: 1px solid #dfdfdd;
+  }
+}
+.album-list__name {
+  padding: 0 20px 0 15px;
+}
+.album-list__favorite {
+  top: 10px;
+  right: 10px;
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+  position: absolute;
+}
