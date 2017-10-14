@@ -1,7 +1,7 @@
 import {combineReducers, createStore, applyMiddleware} from "redux";
 import thunk from 'redux-thunk';
-import {albums, songs, favorites} from './albumReducer';
-import {errors} from './errorReducer';
+import {albums, songs, favorites} from './albumReducers';
+import {errors} from './errorReducers';
 
 const appReducer = combineReducers({
   albums,
