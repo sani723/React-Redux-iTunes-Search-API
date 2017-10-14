@@ -3,10 +3,19 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import MdFavoriteOutline from 'react-icons/lib/md/favorite-outline';
+import MdFavorite from 'react-icons/lib/md/favorite';
 
 const AlbumRow = (props) => {
 
       const {collectionId,collectionName,artistName,artworkUrl60, artworkUrl100} = props;
+
+      let Icon = "";
+      if(props.iconType === "outline") {
+        Icon = <MdFavoriteOutline className="album-list__favorite" onClick={props.onClick.bind(null, props)} />
+      } else {
+        Icon = <MdFavorite className="album-list__favorite" onClick={props.onClick.bind(null, props)} />
+      }
+
       return (
         <li className="album-list__item">
           <Link to={`/album/${collectionId}`}>
@@ -17,7 +26,7 @@ const AlbumRow = (props) => {
             </picture>
             <span className="album-list__name">{collectionName}</span>
           </Link>
-          <MdFavoriteOutline className="album-list__favorite" onClick={props.onClick.bind(null, props)} />
+          {Icon}
         </li>
 
       );

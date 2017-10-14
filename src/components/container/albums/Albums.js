@@ -20,7 +20,7 @@ class Albums extends Component {
     if(isLoading && !albums.length) {
       content = <p>Loading....</p>
     } else {
-      content = albums.map( (album, index) => <AlbumRow key={album.collectionId} {...album} onClick={this.props.favoriteToggle} /> );
+      content = albums.map( (album, index) => <AlbumRow iconType="outline" key={album.collectionId} {...album} onClick={this.props.favoriteToggle} /> );
     }
 
     //const content = albums.map( (album, index) => <AlbumRow key={album.collectionId} {...album} onClick={this.props.favoriteToggle} /> );

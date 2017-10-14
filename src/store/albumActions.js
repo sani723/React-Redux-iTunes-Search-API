@@ -77,10 +77,10 @@ export const addFavoriteAlbum = (favAlbum) => (dispatch, getState) => {
 
 
 // Remove an album from favorites
-export const removeFavoriteAlbum = (collectionId) => (dispatch, getState) => {
+export const removeFavoriteAlbum = (album) => (dispatch, getState) => {
   dispatch ({
     type: ActionTypes.REMOVE_FAVORITE,
-    payload: collectionId
+    payload: album.collectionId
   });
   // todo: Another dispatch for message that Item has been remove as favorite
 }

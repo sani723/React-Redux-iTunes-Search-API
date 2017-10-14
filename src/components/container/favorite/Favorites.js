@@ -2,19 +2,14 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import AlbumRow from '../../ui/albums/AlbumRow';
 import { connect } from 'react-redux';
-import store from '../../../store/';
 import { removeFavoriteAlbum } from '../../../store/albumActions';
 
 class Albums extends Component {
 
-  componentDidMount() {
-
-  }
-
   render() {
-    const { albums } = this.props;
+    const { favorites } = this.props;
 
-    const content = albums.map( (album, index) => <AlbumRow key={album.collectionId} {...album} onClick={this.props.favoriteToggle} /> );
+    const content = favorites.map( (album, index) => <AlbumRow iconType="filled" key={album.collectionId} {...album} onClick={this.props.favoriteToggle} /> );
 
     return (
       <div className="content flex-grid">
@@ -32,11 +27,9 @@ class Albums extends Component {
 }
 
 
-const mapStateToProps = state => (
-  {
-    albums: state.favorites
-  }
-);
+const mapStateToProps = state => ({
+  favorites: state.favorites
+});
 
 
 const mapDispatchToProps = dispatch => {
@@ -46,7 +39,7 @@ const mapDispatchToProps = dispatch => {
 };
 
 Albums.propTypes = {
-  albums: PropTypes.array.isRequired
+  favorites: PropTypes.array.isRequired
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Albums);
