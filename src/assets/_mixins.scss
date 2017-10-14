@@ -3,3 +3,15 @@
   -ms-text-size-adjust: $adjust;
   text-size-adjust: $adjust;
 }
+
+@mixin respond-to($media) {
+  @if $media == handhelds {
+    @media (max-width: $break-small) { @content; }
+  }
+  @else if $media == medium-screens {
+    @media (min-width: $break-small + 1) and (max-width: $break-large - 1) { @content; }
+  }
+  @else if $media == wide-screens {
+    @media (min-width: $break-large) { @content; }
+  }
+}

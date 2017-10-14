@@ -1,0 +1,20 @@
+.content {
+  max-width: 980px;
+  margin: 0 auto;
+  position: relative;
+  padding-top: $primary-page-top-padding;
+}
+.header {
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  padding: 0 15px;
+  z-index: 200;
+  height: 60px;
+  align-items: center;
+  box-sizing: border-box;
+  background-color: #fff;
+  justify-content: space-between;
+  box-shadow: 0 0 0 1px rgba(0,0,0,.1), 0 2px 3px rgba(0,0,0,.2);
+}

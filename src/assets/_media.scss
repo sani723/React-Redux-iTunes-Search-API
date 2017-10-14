@@ -1,0 +1,23 @@
+@include respond-to(handhelds) {
+  #root {
+    padding: 0 15px;
+  }
+  .flex-grid {
+    display: block;
+  }
+  .content {
+    padding-top: $primary-page-top-padding - 40;
+  }
+  .branding__logo {
+    margin-top: 5px;
+  }
+  .music-search {
+    width: 100%;
+  }
+  .music-search__title {
+    font-size: 2em;
+  }
+  .music-search__input {
+    width: 61%;
+  }
+}

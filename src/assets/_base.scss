@@ -10,8 +10,8 @@ body {
   color: $primary-color;
   background-color: $primary-bg-color;
 }
-#root {
-  padding-top: $primary-page-top-padding;
+.flex-grid {
+  display: flex;
 }
 article,
 aside,
