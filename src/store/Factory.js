@@ -1,7 +1,7 @@
 import {combineReducers, createStore, applyMiddleware} from "redux";
 import thunk from 'redux-thunk';
 import {albums, songs, favorites, fetchingStatus, filteredArtists} from './albumReducers';
-import {errors} from './errorReducers';
+import {messages} from './messageReducers';
 
 const appReducer = combineReducers({
   albums,
@@ -9,7 +9,7 @@ const appReducer = combineReducers({
   favorites,
   fetchingStatus,
   filteredArtists,
-  errors
+  messages
 });
 
 export default (initialState={}) => applyMiddleware(thunk)(createStore)(appReducer, initialState);

@@ -4,6 +4,7 @@ import AlbumRow from '../../ui/albums/AlbumRow';
 import { connect } from 'react-redux';
 import store from '../../../store/';
 import { loadAlbums, addFavoriteAlbum } from '../../../store/albumActions';
+import Messages from '../../ui/messages/Messages';
 
 class Albums extends Component {
 
@@ -23,7 +24,6 @@ class Albums extends Component {
       content = albums.map( (album, index) => <AlbumRow iconType="outline" key={album.collectionId} {...album} onClick={this.props.favoriteToggle} /> );
     }
 
-    //const content = albums.map( (album, index) => <AlbumRow key={album.collectionId} {...album} onClick={this.props.favoriteToggle} /> );
     return (
       <div className="content flex-grid">
         <section className="music-search">

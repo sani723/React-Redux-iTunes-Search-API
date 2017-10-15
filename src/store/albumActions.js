@@ -79,10 +79,10 @@ export const addFavoriteAlbum = (favAlbum) => (dispatch, getState) => {
     payload: favAlbum
   });
 
-  //dispatch({
-  //  type: ActionTypes.ADD_ERROR,
-  //  payload: "Album has been added to your favorite list."
-  //});
+  dispatch({
+    type: ActionTypes.ADD_MESSAGE,
+    payload: `${favAlbum.collectionName} Album has been added to your favorite list.`
+  });
 
   // todo: Another dispatch for message that Item has been set as favorite
 }

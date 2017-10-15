@@ -1,7 +1,7 @@
 import ActionTypes from './utils/ActionTypes';
 
 // Load errors
-export const loadErrors = () => (dispatch, getState) => {
+export const loadMessage = () => (dispatch, getState) => {
   dispatch ({
     type: ActionTypes.FETCH_ERROR,
     payload: getState().errors
@@ -10,7 +10,7 @@ export const loadErrors = () => (dispatch, getState) => {
 
 
 // Add an error
-export const addError = (message) => (dispatch, getState) => {
+export const addMessage = (message) => (dispatch, getState) => {
   dispatch ({
     type: ActionTypes.ADD_ERROR,
     payload: message
@@ -19,7 +19,7 @@ export const addError = (message) => (dispatch, getState) => {
 
 
 // Remove an error
-export const removeError = (errorIndex) => (dispatch, getState) => {
+export const removeMessage = (errorIndex) => (dispatch, getState) => {
   dispatch ({
     type: ActionTypes.CLEAR_ERROR,
     payload: errorIndex
