@@ -15,7 +15,7 @@ class AlbumDetail extends Component {
 
     let content = songs.map( (song, index) => {
       return (
-        <li className="artwork__item" key={song.trackId}>
+        <li className="artwork__item hoverable" key={song.trackId}>
           <div className="artwork__meta flex-grid">
             <picture>
               <source className="artwork__graphic" media="(min-width: 465px)" srcSet={song.artworkUrl60} />
@@ -30,6 +30,9 @@ class AlbumDetail extends Component {
               </audio>
             </span>
           </div>
+
+
+          
 
         </li>
       )

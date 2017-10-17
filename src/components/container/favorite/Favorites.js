@@ -39,10 +39,6 @@ class Albums extends Component {
 
   render() {
     const { favorites, filteredArtists } = this.props;
-    console.log(favorites);
-    console.log(filteredArtists);
-    //const content = favorites.map( (album, index) => <AlbumRow iconType="filled" key={album.collectionId} {...album} onClick={this.props.favoriteToggle} /> );
-
     const uniqueArtists = this.removeDuplicates(favorites, "artistName");
     const artistList = uniqueArtists.map((item, index) => <option key={item.collectionId} value={item.artistName}>{item.artistName}</option>)
 

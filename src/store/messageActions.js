@@ -1,27 +1,26 @@
 import ActionTypes from './utils/ActionTypes';
 
-// Load errors
+// Load messages
 export const loadMessage = () => (dispatch, getState) => {
   dispatch ({
-    type: ActionTypes.FETCH_ERROR,
-    payload: getState().errors
+    type: ActionTypes.FETCH_MESSAGE,
+    payload: getState().message
   });
 }
 
 
-// Add an error
+// Add a message
 export const addMessage = (message) => (dispatch, getState) => {
   dispatch ({
-    type: ActionTypes.ADD_ERROR,
+    type: ActionTypes.ADD_MESSAGE,
     payload: message
   });
 }
 
 
-// Remove an error
-export const removeMessage = (errorIndex) => (dispatch, getState) => {
+// Remove a message
+export const removeMessage = () => (dispatch, getState) => {
   dispatch ({
-    type: ActionTypes.CLEAR_ERROR,
-    payload: errorIndex
+    type: ActionTypes.CLEAR_MESSAGE
   });
 }

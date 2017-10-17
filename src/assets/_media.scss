@@ -1,9 +1,6 @@
 @include respond-to(handhelds) {
-  #root {
-    padding: 0 15px;
-  }
   .flex-grid {
-    
+
   }
   .content {
     padding-top: $primary-page-top-padding - 40;
